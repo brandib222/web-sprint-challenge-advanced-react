@@ -18,10 +18,14 @@ test("shows success message on submit with form details", async () => {
     render(<CheckoutForm/>);
 
     // Act
-   
+    const firstName = screen.getByLabelText(/firstName:/i);
+    userEvent.type(firstName, 'Brandi');
 
     //Assert
-    
+    waitFor(async () => {
+        const success = screen.queryByTestId('successMessage');
+        expect(success).toBeInTheDocument();
+    })
 
 
 });
