@@ -12,7 +12,10 @@ test("renders without errors", () => {
 
 });
 
-test("shows success message on submit with form details", () => {
+test("shows success message on submit with form details", async () => {
+    render(<CheckoutForm/>);
+
+    const input = 'plant';
     // Act
     const firstName = screen.getByLabelText(/firstName:/i);
     userEvent.type(firstName, 'Brandi');
@@ -35,6 +38,13 @@ test("shows success message on submit with form details", () => {
     const button = screen.getByRole('button');
     userEvent.click(button);
 
+    waitFor(async () => {
+    const successMessage = screen.getByTestId('successMessage');
+    expect(successMessage).toBeInTheDocument();
+    })
+
+
     //Assert
+    
 
 });
