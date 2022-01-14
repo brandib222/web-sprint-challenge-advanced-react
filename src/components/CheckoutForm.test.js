@@ -13,38 +13,15 @@ test("renders without errors", () => {
 });
 
 test("shows success message on submit with form details", async () => {
+
+    // Arrange
     render(<CheckoutForm/>);
 
-    const input = 'plant';
     // Act
-    const firstName = screen.getByLabelText(/firstName:/i);
-    userEvent.type(firstName, 'Brandi');
-
-    const lastName = screen.getByLabelText(/lastName:/i);
-    userEvent.type(lastName, 'Ball');
-
-    const address = screen.getByLabelText(/address:/i);
-    userEvent.type(address, 'none of your business');
-
-    const city = screen.getByLabelText(/city:/i);
-    userEvent.type(city, 'Indianapolis');
-
-    const state = screen.getByLabelText(/state:/i);
-    userEvent.type(state, 'Indiana');
-
-    const zip = screen.getByLabelText(/zip:/i);
-    userEvent.type(zip, '46250');
-
-    const button = screen.getByRole('button');
-    userEvent.click(button);
-
-    waitFor(async () => {
-    const successMessage = screen.getByTestId('successMessage');
-    expect(successMessage).toBeInTheDocument();
-    })
-
+   
 
     //Assert
     
+
 
 });
